@@ -1,0 +1,14 @@
+body{background:#36393f;color:white;font-family:sans-serif;margin:0;}
+#sidebar{width:250px;background:#2f3136;height:100vh;float:left;}
+#chat-container{margin-left:250px;padding:10px;overflow-y:auto;height:90vh;}
+.message{padding:5px;margin-bottom:5px;background:#40444b;border-radius:5px;transition:all 0.2s ease;}
+.message:hover{background:#4f5666;transform:scale(1.01);}
+.mention{color:#00b0f4;font-weight:bold;}
+input#chat-input{width:80%;padding:5px;}
+button{padding:5px;}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);}
+
+/* themes */
+body.dark{background:#36393f;color:white;}
+body.light{background:#fff;color:#222;}
+body.custom{background:#1f1b2e;color:#a0a0ff;}
