@@ -1,0 +1,25 @@
+{
+  "users": {
+    "memegodmidas": {
+      "password": "Godsatan1342",
+      "nickname": "Admin",
+      "globalAdmin": true,
+      "blocked": [],
+      "permissions": {
+        "kick": true,
+        "ban": true,
+        "timeout": true,
+        "manageBadges": true,
+        "manageNicknames": true
+      },
+      "achievements": [],
+      "profileBadges": [],
+      "profilePic": ""
+    }
+  },
+  "servers": {},
+  "reports": [],
+  "globalBans": [],
+  "registrationRequests": [],
+  "achievements": []
+}
