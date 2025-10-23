@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Discord Clone</title>
+</head>
+<body>
+<div id="sidebar"><div id="servers"></div><div id="channels"></div></div>
+<div id="chat-container"></div>
+<input id="chat-input" placeholder="Message..."/>
+<button id="send-btn">Send</button>
+<div id="profile-modal" class="modal"></div>
+<div id="admin-modal" class="modal"></div>
+<button onclick="setTheme('dark')">Dark</button>
+<button onclick="setTheme('light')">Light</button>
+<button onclick="setTheme('custom')">Custom</button>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
