@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Profile</title>
+</head>
+<body>
+<h2 id="username"></h2>
+<img id="profile-pic" src="" width="150"/>
+<input type="file" id="upload-pic"/>
+<button id="change-nick">Change Nickname</button>
+<div id="achievements"></div>
+<div id="xp-rank"></div>
+<div id="user-files"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket=io();
+const username=decodeURIComponent(location.search.split('user=')[1]||'');
+fetch('/db.json').then(r=>r.json()).then(db=>{
+  const user=db.users[username];
+  if(!user) return;
+  document.getElementById('username').innerText=user.username||username;
+  document.getElementById('profile-pic').src=user.profilePic||'/media/default.png';
+  document.getElementById('achievements').innerText='Badges: '+(user.profileBadges.join(', '));
+  document.getElementById('xp-rank').innerText='XP: '+(db.servers.default?.userXP[username]||0);
+});
+document.getElementById('upload-pic').onchange=e=>{
+  const file=e.target.files[0];
+  const form=new FormData();
+  form.append('file',file);
+  fetch('/profile-pic',{method:'POST',body:form}).then(r=>r.json()).then(res=>{
+    document.getElementById('profile-pic').src=res.url;
+  });
+}
+document.getElementById('change-nick').onclick=()=>{
+  const nick=prompt('Enter new nickname:');
+  if(nick) socket.emit('set-nickname',{nickname:nick});
+}
+</script>
+</body>
+</html>
